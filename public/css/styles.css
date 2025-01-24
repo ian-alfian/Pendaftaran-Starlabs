@@ -1,0 +1,661 @@
+body {
+    font-family: Arial, sans-serif;
+    background: url('/images/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.header {
+    text-align: center;
+}
+
+h1, h2 {
+    margin: 0;
+}
+
+h3 {
+    text-align: center;
+}
+
+.division-selection {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin: 2rem auto;
+    max-width: 500px;
+}
+
+.division-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.division-btn i {
+    font-size: 1.5rem;
+}
+
+.division-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+}
+
+.data-form {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+.data-form h4 {
+    color: white;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.input-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.input-group:focus-within {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3);
+}
+
+.input-group i {
+    color: rgba(255, 255, 255, 0.8);
+    margin-right: 1rem;
+}
+
+.input-group input {
+    background: transparent;
+    border: none;
+    color: white;
+    width: 100%;
+    padding: 0.5rem 0;
+    font-size: 1rem;
+}
+
+.input-group input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.input-group input:focus {
+    outline: none;
+}
+
+.next-btn {
+    width: 100%;
+    padding: 1rem;
+    background: #FF6B6B;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    margin-top: 2rem;
+}
+
+.next-btn:hover {
+    background: #FF4C4C;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+}
+
+.next-btn i {
+    transition: transform 0.3s ease;
+}
+
+.next-btn:hover i {
+    transform: translateX(5px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        margin: 20px;
+    }
+
+    .division-selection {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .data-form {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .division-selection {
+        grid-template-columns: 1fr;
+    }
+
+    .data-form {
+        padding: 1rem;
+    }
+
+    .input-group {
+        padding: 0.4rem 0.8rem;
+    }
+}
+
+/* Styling untuk toggle password */
+.toggle-password {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+    padding: 0;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.toggle-password:hover {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Submit button styling */
+.submit-btn {
+    width: 100%;
+    padding: 1rem;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    margin-top: 2rem;
+}
+
+.submit-btn:hover {
+    background: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+
+.submit-btn i {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.submit-btn:hover i {
+    transform: scale(1.1);
+}
+
+/* Password strength indicator (optional) */
+.password-strength {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.strength-indicator {
+    display: flex;
+    gap: 0.3rem;
+    margin-top: 0.3rem;
+}
+
+.strength-bar {
+    height: 4px;
+    flex: 1;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    transition: background 0.3s ease;
+}
+
+.strength-bar.active {
+    background: #4CAF50;
+}
+
+.strength-bar.weak {
+    background: #ff4444;
+}
+
+.strength-bar.medium {
+    background: #ffbb33;
+}
+
+.strength-bar.strong {
+    background: #00C851;
+}
+
+/* Container Wrapper */
+.container-wrapper {
+    width: 100%;
+    max-width: 1400px;
+    margin: 20px auto;
+    padding: 15px;
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    box-sizing: border-box; /* Include padding in width */
+}
+
+/* Update existing container */
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.form-container {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Info Container */
+.info-container {
+    margin-top: 10%;
+    flex: 1;
+    background: none;
+    padding: none;
+}
+
+.logo-section {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.info-logo {
+    width: 150px;
+    height: auto;
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.4));
+    transition: transform 0.3s ease;
+}
+
+.info-logo:hover {
+    transform: scale(1.05);
+}
+
+.header {
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.header h2 {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.header .tagline {
+    font-size: 1.2rem;
+    color: #FF6B6B;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.header .quote {
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+    padding: 1rem;
+    border-left: 3px solid rgba(33, 150, 243, 0.7);
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 0 10px 10px 0;
+    backdrop-filter: blur(4px);
+}
+
+/* Responsive Design Updates */
+@media (max-width: 1200px) {
+    .container-wrapper {
+        max-width: 95%;
+    }
+}
+
+@media (max-width: 992px) {
+    .container-wrapper {
+        flex-direction: column;
+        padding: 10px;
+        margin: 10px auto;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .container, .info-container {
+        width: 100%;
+        padding: 10px;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    .info-container {
+        order: -1;
+        margin-bottom: 1.5rem;
+        padding: 1.5rem;
+    }
+
+    .form-container {
+        padding: 1rem;
+    }
+
+    .division-selection {
+        width: 100%;
+        padding: 0 10px;
+        box-sizing: border-box;
+        gap: 10px;
+    }
+
+    .division-btn {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .division-btn i {
+        font-size: 1.2rem;
+    }
+
+    .division-btn span {
+        font-size: 0.85rem;
+    }
+
+    .data-form {
+        width: 100%;
+        padding: 15px;
+        box-sizing: border-box;
+    }
+
+    .input-group {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .input-group input {
+        font-size: 0.95rem;
+    }
+
+    .header h1 {
+        font-size: 1.4rem;
+    }
+
+    .header h2 {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+    }
+
+    .header .tagline {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .header .quote {
+        font-size: 0.9rem;
+        padding: 0.8rem;
+        line-height: 1.4;
+    }
+
+    .next-btn, .submit-btn {
+        padding: 0.8rem;
+        font-size: 0.95rem;
+    }
+
+    .login-button {
+        top: 10px;
+        right: 10px;
+    }
+
+    .login-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .container-wrapper {
+        margin: 20px auto;
+        padding: 15px;
+    }
+
+    .division-selection {
+        gap: 1rem;
+        margin: 1.5rem auto;
+    }
+
+    .division-btn {
+        padding: 0.8rem;
+    }
+
+    .division-btn i {
+        font-size: 1.3rem;
+    }
+
+    .division-btn span {
+        font-size: 0.9rem;
+    }
+
+    .data-form {
+        padding: 1.5rem;
+    }
+
+    .form-container {
+        padding: 1rem;
+    }
+
+    .info-logo {
+        width: 120px;
+    }
+
+    .header .quote {
+        font-size: 0.9rem;
+        padding: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container-wrapper {
+        padding: 8px;
+        margin: 5px 0;
+    }
+
+    .container, .info-container {
+        padding: 8px;
+    }
+
+    .form-container {
+        padding: 8px;
+    }
+
+    .division-selection {
+        padding: 0 5px;
+        gap: 8px;
+    }
+
+    .data-form {
+        padding: 12px;
+    }
+
+    .input-group {
+        padding: 8px 12px;
+    }
+
+    /* Adjust font sizes for better mobile display */
+    .division-btn {
+        font-size: 0.9rem;
+    }
+
+    .input-group input {
+        font-size: 16px; /* Prevent zoom on iOS */
+    }
+
+    .header h1 {
+        font-size: 1.2rem;
+    }
+
+    .header h2 {
+        font-size: 1rem;
+    }
+
+    .header .quote {
+        font-size: 0.85rem;
+        padding: 10px;
+    }
+
+    .next-btn, .submit-btn {
+        padding: 0.7rem;
+        margin-top: 1.5rem;
+    }
+
+    .login-btn span {
+        display: none;
+    }
+
+    .login-btn {
+        padding: 0.5rem;
+    }
+
+    .login-btn i {
+        margin: 0;
+    }
+
+    .info-container {
+        padding: 1rem;
+    }
+
+    .info-logo {
+        width: 100px;
+    }
+}
+
+/* Login Button Styling */
+.login-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.login-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    font-weight: 500;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.login-btn i {
+    font-size: 1.1rem;
+}
+
+.login-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Update responsive styles untuk login button */
+@media (max-width: 768px) {
+    .login-button {
+        top: 15px;
+        right: 15px;
+    }
+
+    .login-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-btn span {
+        display: none; /* Sembunyikan teks pada layar kecil */
+    }
+
+    .login-btn {
+        padding: 0.6rem;
+    }
+
+    .login-btn i {
+        margin: 0;
+        font-size: 1.2rem;
+    }
+}
+
+/* Add smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Improve touch targets */
+button,
+input,
+.login-btn {
+    touch-action: manipulation;
+}
+
+/* Prevent text size adjustment */
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+/* Fix for iOS input zoom */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    select,
+    textarea,
+    input {
+        font-size: 16px;
+    }
+}
