@@ -63,6 +63,47 @@ h3 {
     transform: translateY(-3px);
 }
 
+/* Styling untuk notifikasi pemilihan divisi */
+.division-notification {
+    display: none; /* Default tidak terlihat */
+    position: fixed;
+    top: 20px; /* Jarak dari atas */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgb(255, 255, 255); /* Warna biru muda */
+    color: rgb(36, 100, 197); /* Warna teks hijau tua */
+    padding: 15px 20px;
+    border: 1px solid rgb(255, 255, 255); /* Border warna biru kehijauan */
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    z-index: 9999; /* Agar tampil di atas elemen lain */
+    animation: fadeInOut 4s ease-in-out; /* Animasi muncul & hilang */
+    text-align: center;
+}
+
+/* Animasi muncul & hilang */
+@keyframes slideInOut {
+    0% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    10% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    90% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+}
+
 .data-form {
     background: rgb(18, 76, 163);
     padding: 2rem;
@@ -99,7 +140,7 @@ h3 {
 }
 
 .input-group i {
-    color: white;
+    color:rgba(255, 255, 255, 0.2);
     margin-right: 1rem;
 }
 
@@ -123,7 +164,7 @@ h3 {
 .next-btn {
     width: 100%;
     padding: 1rem;
-    background: #00fd72be;
+    background: #00fd728a;
     color: white;
     border: none;
     border-radius: 8px;
@@ -138,7 +179,7 @@ h3 {
 }
 
 .next-btn:hover {
-    background: #129c50be;
+    background: #00fd72dd;
     transform: translateY(-2px);
     box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
 }
@@ -195,11 +236,44 @@ h3 {
     color: rgba(255, 255, 255, 0.9);
 }
 
+/* Tombol "Kembali" (prev-btn) */
+.prev-btn {
+    width: 100%;
+    padding: 1rem;
+    background: #00fd728a; /* Sama dengan tombol daftar */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    margin-top: 2rem;
+}
+
+.prev-btn:hover {
+    background: #00fd72dd; /* Sama dengan hover tombol daftar */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+
+.prev-btn i {
+    font-size: 1.2rem; /* Sama dengan ikon pada submit-btn */
+    transition: transform 0.3s ease;
+}
+
+.prev-btn:hover i {
+    transform: scale(1.1); /* Sama dengan hover ikon submit-btn */
+}
+
 /* Submit button styling */
 .submit-btn {
     width: 100%;
     padding: 1rem;
-    background: #4CAF50;
+    background: #00fd728a;
     color: white;
     border: none;
     border-radius: 8px;
@@ -214,7 +288,7 @@ h3 {
 }
 
 .submit-btn:hover {
-    background: #45a049;
+    background:#00fd72dd;
     transform: translateY(-2px);
     box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
 }
@@ -227,6 +301,32 @@ h3 {
 .submit-btn:hover i {
     transform: scale(1.1);
 }
+/* Container untuk tombol */
+.button-group {
+    display: flex;
+    justify-content: space-between; /* Spasi antar tombol */
+    align-items: center;
+    gap: 1rem; /* Jarak antar tombol */
+    margin-top: 2rem; /* Jarak atas */
+}
+
+/* Styling untuk notifikasi */
+.notification {
+    background-color: #ffd700; /* Warna kuning peringatan */
+    color: #333;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    margin-bottom: 1rem; /* Jarak bawah ke tombol */
+    text-align: center;
+    display: none; /* Default disembunyikan */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.notification.active {
+    display: block; /* Tampilkan notifikasi jika aktif */
+}
+
 
 /* Password strength indicator (optional) */
 .password-strength {
@@ -692,3 +792,71 @@ html {
         0 0 20px rgba(135, 181, 231, 0.4),
         0 0 25px rgba(135, 181, 231, 0.2); }
 }
+
+/* Styling untuk notifikasi warning */
+.warning-notification {
+    display: none; /* Default tidak terlihat */
+    position: fixed;
+    top: 20px; /* Jarak dari atas */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ff0015; /* Warna merah muda lembut */
+    color: #ffffff; /* Warna teks merah gelap */
+    padding: 15px 20px;
+    border: 1px solid #ff0019; /* Border warna merah */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    z-index: 9999; /* Agar tampil di atas elemen lain */
+    animation: fadeInOut 4s ease-in-out; /* Animasi muncul & hilang */
+    text-align: center;
+}
+
+/* Animasi untuk notifikasi */
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-10px);
+    }
+    10% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+    90% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-10px);
+    }
+}
+
+/* Tombol "Kembali" */
+.prev-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #6c757d; /* Warna abu-abu */
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 10px; /* Jarak dengan tombol "Selanjutnya" */
+}
+
+.prev-btn i {
+    margin-right: 5px; /* Jarak antara ikon dan teks */
+}
+
+.prev-btn:hover {
+    background-color: #5a6268; /* Warna lebih gelap saat hover */
+}
+
