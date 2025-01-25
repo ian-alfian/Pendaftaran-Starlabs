@@ -99,7 +99,7 @@ h3 {
 }
 
 .input-group i {
-    color: rgba(255, 255, 255, 0.8);
+    color: white;
     margin-right: 1rem;
 }
 
@@ -113,7 +113,7 @@ h3 {
 }
 
 .input-group input::placeholder {
-    color: rgba(255, 255, 255, 0.6);
+    color: white;
 }
 
 .input-group input:focus {
@@ -138,7 +138,7 @@ h3 {
 }
 
 .next-btn:hover {
-    background: #FF4C4C;
+    background: #129c50be;
     transform: translateY(-2px);
     box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
 }
@@ -254,7 +254,7 @@ h3 {
 }
 
 .strength-bar.weak {
-    background: #ff4444;
+    background: #129c50be;
 }
 
 .strength-bar.medium {
@@ -601,7 +601,7 @@ h3 {
 }
 
 .login-btn:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: #129c50be;
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
