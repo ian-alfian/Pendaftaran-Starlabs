@@ -106,7 +106,7 @@
             <h1>UNIT KEGIATAN MAHASISWA</h1>
             <h2>SCIENCE TECHNOLOGY AND COMPUTER LABORATORIES</h2>
             <p class="fire-text">Salam Teknologi!</p>
-            <p class="quote">"Di Era perkembangan teknologi yang sangat pesat, jangan sampai kamu tertinggal, jangan hanya jadi pengguna tetapi cobalah untuk jadi bagian dari penciptaan teknologi."</p>
+            <p class="quote">"Di Era perkembangan teknologi yang sangat pesat, jangan sampai kamu tertinggal, jangan hanya jadi pengguna tetapi cobalah untuk menjadi bagian dari terciptanya teknologi."</p>
         </div>
     </div>
 </div>
