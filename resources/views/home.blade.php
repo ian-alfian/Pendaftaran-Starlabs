@@ -30,42 +30,68 @@
                 </button>
             </div>
 
-
             <!-- Notifikasi Divisi -->
             <div id="division-notification" class="division-notification">
                 Anda memilih divisi: Pemrograman
             </div>
-            <div id="division-warning" class="warning-notification">
+            <div id="division-warning" class="warning-notification-2"">
                 Harap pilih divisi terlebih dahulu sebelum mengisi Data Diri.
             </div>
 
             <!-- Form Data Diri -->
             <div id="data-form" class="data-form">
                 <h4><i class="fas fa-user-circle"></i> DATA DIRI</h4>
+
+                <!-- Nama Lengkap -->
                 <div class="form-group">
                     <div class="input-group">
                         <i class="fas fa-user"></i>
                         <input type="text" id="name" placeholder="Nama Lengkap" required>
                     </div>
+                    <div id="name-warning" class="warning-message" style="display: none; color: red; font-size: 12px;"></div>
                 </div>
+
+                <!-- NIM -->
                 <div class="form-group">
                     <div class="input-group">
                         <i class="fas fa-id-card"></i>
                         <input type="text" id="nim" placeholder="NIM" required>
                     </div>
+                    <div id="nim-warning" class="warning-message" style="display: none; color: red; font-size: 12px;"></div>
                 </div>
+
+                <!-- Program Studi -->
                 <div class="form-group">
                     <div class="input-group">
                         <i class="fas fa-graduation-cap"></i>
                         <input type="text" id="prodi" placeholder="Program Studi" required>
                     </div>
+                    <div id="prodi-warning" class="warning-message" style="display: none; color: red; font-size: 12px;"></div>
                 </div>
+
+                <!-- Fakultas -->
                 <div class="form-group">
                     <div class="input-group">
                         <i class="fas fa-university"></i>
                         <input type="text" id="fakultas" placeholder="Fakultas" required>
                     </div>
+                    <div id="fakultas-warning" class="warning-message" style="display: none; color: red; font-size: 12px;"></div>
                 </div>
+
+                <!-- Jenis Kelamin -->
+                <div class="form-group">
+                    <div class="input-group">
+                        <i class="fas fa-venus-mars"></i>
+                        <select id="gender" required>
+                            <option value="">Pilih Jenis Kelamin</option>
+                            <option value="Laki-laki">Laki-laki</option>
+                            <option value="Perempuan">Perempuan</option>
+                            <option value="Lainnya">Lainnya</option>
+                        </select>
+                    </div>
+                    <div id="gender-warning" class="warning-message" style="display: none; color: red; font-size: 12px;"></div>
+                </div>
+
                 <button onclick="nextStep()" class="next-btn">
                     <span>Selanjutnya</span>
                     <i class="fas fa-arrow-right"></i>
@@ -76,23 +102,25 @@
             <div id="email-form" class="data-form" style="display: none;">
                 <h4><i class="fas fa-envelope-circle-check"></i> PENGISIAN EMAIL</h4>
 
-                <!-- Pemberitahuan -->
-                <div id="email-warning-notification" class="warning-notification-2" style="display: none;">
-                    Harap isi semua data di bagian PENGISIAN EMAIL sebelum melanjutkan.
-                </div>
-
+                <!-- Email -->
                 <div class="form-group">
                     <div class="input-group">
                         <i class="fas fa-envelope"></i>
                         <input type="email" id="email" placeholder="Email" required>
                     </div>
+                    <div id="email-warning" class="warning-message" style="display: none; color: red; font-size: 12px;"></div>
                 </div>
+
+                <!-- Username -->
                 <div class="form-group">
                     <div class="input-group">
                         <i class="fas fa-user-tag"></i>
                         <input type="text" id="username" placeholder="Username" required>
                     </div>
+                    <div id="username-warning" class="warning-message" style="display: none; color: red; font-size: 12px;"></div>
                 </div>
+
+                <!-- Password -->
                 <div class="form-group">
                     <div class="input-group">
                         <i class="fas fa-lock"></i>
@@ -101,7 +129,10 @@
                             <i class="fas fa-eye"></i>
                         </button>
                     </div>
+                    <div id="password-warning" class="warning-message" style="display: none; color: red; font-size: 12px;"></div>
                 </div>
+
+                <!-- Konfirmasi Password -->
                 <div class="form-group">
                     <div class="input-group">
                         <i class="fas fa-lock-check"></i>
@@ -110,7 +141,9 @@
                             <i class="fas fa-eye"></i>
                         </button>
                     </div>
+                    <div id="confirm-password-warning" class="warning-message" style="display: none; color: red; font-size: 12px;"></div>
                 </div>
+
                 <div class="button-group">
                     <!-- Tombol Kembali -->
                     <button onclick="previousStep()" class="prev-btn">
@@ -128,9 +161,8 @@
         </div>
     </div>
     <div id="email-success-notification" class="success-notification">
-        Formulir Pengisian Email berhasil diisi!
+        PENGISIAN FORMULIR PENDAFTARAN BERHASIL😊😊
     </div>
-
 
     <!-- Container kanan (info) -->
     <div class="info-container">
@@ -142,9 +174,6 @@
             <h2>SCIENCE TECHNOLOGY AND COMPUTER LABORATORIES</h2>
             <p class="fire-text">Salam Teknologi!</p>
             <p class="quote">"Di Era perkembangan teknologi yang sangat pesat, jangan sampai kamu tertinggal, jangan hanya jadi pengguna tetapi cobalah untuk menjadi bagian dari terciptanya teknologi."</p>
-        </div>
-        <div id="warning-notification" class="warning-notification">
-            Harap isi semua data di bagian DATA DIRI sebelum melanjutkan.
         </div>
     </div>
 </div>

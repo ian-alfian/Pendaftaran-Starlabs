@@ -170,6 +170,37 @@ h3 {
     outline: none;
 }
 
+/* Styling elemen <select> */
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgba(145, 169, 221, 0.521);
+    border-radius: 5px;
+    font-size: 16px;
+    color: #ffffff;
+    background: rgba(145, 169, 221, 0.521);
+    transition: border-color 0.3s ease;
+}
+
+/* Warna latar belakang untuk <option> */
+select option {
+    background-color: rgb(255, 255, 255); /* Warna biru muda */
+    color: #000000; /* Warna teks hitam */
+}
+
+/* Fokus pada <select> */
+select:focus {
+    outline: none;
+    border-color: #ffffff;
+    box-shadow: 0 0 5px rgba(36, 100, 197, 0.5);
+}
+
+/* Hover efek pada opsi */
+select option:hover {
+    background-color: rgb(255, 255, 255); /* Warna lebih gelap saat di-hover */
+    color: #000000; /* Teks berubah menjadi putih */
+}
+
 .next-btn {
     width: 100%;
     padding: 1rem;
@@ -849,8 +880,8 @@ html {
     top: -60px; /* Awalnya di luar layar */
     left: 50%;
     transform: translateX(-50%);
-    background-color: #ff0015; /* Warna merah muda lembut */
-    color: #ffffff; /* Warna teks merah gelap */
+    background-color: #ff0015; /* Warna merah */
+    color: #ffffff; /* Warna teks putih */
     border: 1px solid #ff0019; /* Border warna merah */
     padding: 15px;
     font-size: 16px;
@@ -864,7 +895,7 @@ html {
 }
 
 .warning-notification-2.show {
-    display: block; /* Tampilkan notifikasi */
+    display: none; /* Tampilkan notifikasi */
     top: 20px; /* Posisi notifikasi saat muncul */
 }
 
