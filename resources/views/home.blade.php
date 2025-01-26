@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Pendaftaran STAR LABS')
+@section('title', 'Pendaftaran STARLABS')
+<link rel="icon" type="image/png" href="{{ asset('images/logo.png') }}">
 
 @section('content')
 <div class="container-wrapper">

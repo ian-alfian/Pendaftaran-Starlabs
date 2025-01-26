@@ -694,7 +694,7 @@ h3 {
     align-items: center;
     gap: 0.5rem;
     padding: 0.8rem 1.5rem;
-    background: #00fd72be;
+    background: #00fd728a;
     color: white;
     text-decoration: none;
     border-radius: 25px;
@@ -710,7 +710,7 @@ h3 {
 }
 
 .login-btn:hover {
-    background: #129c50be;
+    background:#00fd72;
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
