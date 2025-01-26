@@ -1,6 +1,6 @@
-let selectedDivision = null; // Variabel untuk menyimpan divisi yang dipilih
+let selectedDivision = null; // Variabel global untuk menyimpan tombol yang dipilih
 
-function selectDivision(division) {
+function selectDivision(division, button) {
     // Simpan divisi yang dipilih
     selectedDivision = division;
 
@@ -9,11 +9,21 @@ function selectDivision(division) {
     notification.textContent = "Anda memilih divisi: " + division;
     notification.style.display = 'block';
 
+    // Hapus kelas 'selected' dari semua tombol
+    const buttons = document.querySelectorAll('.division-btn');
+    buttons.forEach(btn => {
+        btn.classList.remove('selected');
+    });
+
+    // Tambahkan kelas 'selected' ke tombol yang diklik
+    button.classList.add('selected');
+
     // Sembunyikan notifikasi otomatis setelah 3 detik
     setTimeout(() => {
         notification.style.display = 'none';
     }, 3000);
 }
+
 
 function nextStep() {
     const inputs = document.querySelectorAll('#data-form input');
@@ -70,43 +80,91 @@ function isValidEmail(email) {
     return emailRegex.test(email);
 }
 
-function submitForm() {
+function validateEmailForm() {
     const email = document.getElementById('email').value.trim();
     const username = document.getElementById('username').value.trim();
     const password = document.getElementById('password').value.trim();
     const confirmPassword = document.getElementById('confirm-password').value.trim();
+    const notification = document.getElementById('email-warning-notification');
 
-    if (!email || !username || !password || !confirmPassword) {
-        alert('Harap isi semua data di bagian PENGISIAN EMAIL sebelum mendaftar.');
-        return;
-    }
+    // Reset styles dan sembunyikan notifikasi kesalahan
+    notification.style.display = 'none';
 
-    if (!isValidEmail(email)) {
-        alert('Harap masukkan alamat email yang valid.');
-        return;
-    }
+   // Periksa apakah semua input sudah terisi
+if (!email || !username || !password || !confirmPassword) {
+    const notification = document.getElementById('email-warning-notification');
 
-    if (password !== confirmPassword) {
-        alert('Konfirmasi password tidak cocok. Silakan periksa kembali.');
-        return;
-    }
+    // Tampilkan notifikasi dengan animasi
+    notification.textContent = "Harap isi semua data di bagian PENGISIAN EMAIL sebelum melanjutkan.";
+    notification.style.display = 'block'; // Pastikan elemen ditampilkan
+    notification.classList.add('show'); // Tambahkan animasi turun
 
-    alert('Formulir pendaftaran berhasil dikirim!');
+    // Highlight input yang kosong
+    document.querySelectorAll('#email-form input').forEach(input => {
+        if (!input.value.trim()) {
+            input.style.border = '2px solid red'; // Beri tanda merah pada input kosong
+        } else {
+            input.style.border = ''; // Reset jika terisi
+        }
+    });
+
+    // Sembunyikan notifikasi setelah 4 detik
+    setTimeout(() => {
+        notification.classList.remove('show'); // Hapus animasi
+        setTimeout(() => {
+            notification.style.display = 'none'; // Hilangkan dari DOM setelah animasi
+        }, 500); // Tunggu 500ms untuk menyelesaikan animasi
+    }, 4000);
+
+    return; // Jangan lanjutkan proses jika ada input kosong
 }
 
-function checkEmailForm() {
-    const email = document.getElementById("email").value;
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
-    const confirmPassword = document.getElementById("confirm-password").value;
-
-    // Validasi form
-    if (!email || !username || !password || !confirmPassword) {
-        // Tampilkan notifikasi
-        const notification = document.getElementById("notification");
-        notification.classList.add("active");
+    // Validasi email
+    if (!isValidEmail(email)) {
+        notification.textContent = "Harap masukkan alamat email yang valid.";
+        notification.style.display = 'block';
+        document.getElementById('email').style.border = '2px solid red';
+        return;
     } else {
-        // Lanjutkan proses submit jika valid
-        submitForm();
+        document.getElementById('email').style.border = '';
     }
+
+    // Periksa kecocokan password
+    if (password !== confirmPassword) {
+        notification.textContent = "Konfirmasi password tidak cocok. Silakan periksa kembali.";
+        notification.style.display = 'block';
+        document.getElementById('confirm-password').style.border = '2px solid red';
+        return;
+    } else {
+        document.getElementById('confirm-password').style.border = '';
+    }
+
+    // Jika semua validasi berhasil, tampilkan notifikasi sukses
+    showEmailSuccessNotification();
+
+    // Lanjutkan proses atau logika lainnya
+    console.log('Form Pendaftaran berhasil diisi!');
+}
+
+function submitForm() {
+    validateEmailForm();
+}
+
+// Sembunyikan notifikasi saat input diubah
+document.querySelectorAll('#email-form input').forEach((input) => {
+    input.addEventListener('input', () => {
+        const emailWarning = document.getElementById('email-warning-notification');
+        emailWarning.style.display = 'none';
+        input.style.border = ''; // Reset border saat pengguna mulai mengisi
+    });
+});
+
+function showEmailSuccessNotification() {
+    const notification = document.getElementById('email-success-notification');
+    notification.classList.add('show'); // Tampilkan notifikasi dengan animasi
+
+    // Sembunyikan notifikasi setelah beberapa detik
+    setTimeout(() => {
+        notification.classList.remove('show');
+    }, 4000); // Tampil selama 4 detik
 }

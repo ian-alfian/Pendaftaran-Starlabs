@@ -11,23 +11,24 @@
 
             <!-- Pilihan Divisi -->
             <div class="division-selection">
-                <button onclick="selectDivision('Pemrograman')" class="division-btn">
+                <button onclick="selectDivision('Pemrograman', this)" class="division-btn">
                     <i class="fas fa-code"></i>
                     <span>Pemrograman</span>
                 </button>
-                <button onclick="selectDivision('Jaringan')" class="division-btn">
+                <button onclick="selectDivision('Jaringan', this)" class="division-btn">
                     <i class="fas fa-network-wired"></i>
                     <span>Jaringan</span>
                 </button>
-                <button onclick="selectDivision('Multimedia')" class="division-btn">
+                <button onclick="selectDivision('Multimedia', this)" class="division-btn">
                     <i class="fas fa-photo-video"></i>
                     <span>Multimedia</span>
                 </button>
-                <button onclick="selectDivision('Office')" class="division-btn">
+                <button onclick="selectDivision('Office', this)" class="division-btn">
                     <i class="fas fa-desktop"></i>
                     <span>Office</span>
                 </button>
             </div>
+
 
             <!-- Notifikasi Divisi -->
             <div id="division-notification" class="division-notification">
@@ -73,6 +74,12 @@
             <!-- Form Pengisian Email -->
             <div id="email-form" class="data-form" style="display: none;">
                 <h4><i class="fas fa-envelope-circle-check"></i> PENGISIAN EMAIL</h4>
+
+                <!-- Pemberitahuan -->
+                <div id="email-warning-notification" class="warning-notification-2" style="display: none;">
+                    Harap isi semua data di bagian PENGISIAN EMAIL sebelum melanjutkan.
+                </div>
+
                 <div class="form-group">
                     <div class="input-group">
                         <i class="fas fa-envelope"></i>
@@ -119,6 +126,10 @@
             </div>
         </div>
     </div>
+    <div id="email-success-notification" class="success-notification">
+        Formulir Pengisian Email berhasil diisi!
+    </div>
+
 
     <!-- Container kanan (info) -->
     <div class="info-container">

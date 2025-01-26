@@ -48,7 +48,7 @@ h3 {
     padding: 1rem;
     border: none;
     border-radius: 10px;
-    background: rgb(18, 76, 163);
+    background: rgb(49, 103, 184);
     color: white;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -62,6 +62,16 @@ h3 {
     background: rgba(36, 100, 197, 0.507);
     transform: translateY(-3px);
 }
+
+/* Tombol yang dipilih */
+.division-btn.selected {
+    background: rgba(0, 45, 113, 0.9); /* Warna yang lebih cerah untuk tombol terpilih */
+    color: white; /* Pastikan warna teks tetap kontras */
+    transform: scale(1.05); /* Sedikit membesar untuk penekanan */
+    box-shadow: 0 4px 10px rgba(36, 100, 197, 0.3); /* Tambahkan bayangan */
+    transition: all 0.3s ease;
+}
+
 
 /* Styling untuk notifikasi pemilihan divisi */
 .division-notification {
@@ -84,26 +94,25 @@ h3 {
     text-align: center;
 }
 
-/* Animasi muncul & hilang */
-@keyframes slideInOut {
+/* Animasi muncul dan hilang */
+@keyframes fadeInOut {
     0% {
         opacity: 0;
-        transform: translateX(100%);
+        transform: translateY(-20px);
     }
     10% {
         opacity: 1;
-        transform: translateX(0);
+        transform: translateY(0);
     }
     90% {
         opacity: 1;
-        transform: translateX(0);
+        transform: translateY(0);
     }
     100% {
         opacity: 0;
-        transform: translateX(100%);
+        transform: translateY(-20px);
     }
 }
-
 .data-form {
     background: rgb(18, 76, 163);
     padding: 2rem;
@@ -834,6 +843,51 @@ html {
     }
 }
 
+
+.warning-notification-2 {
+    position: fixed;
+    top: -60px; /* Awalnya di luar layar */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ff0015; /* Warna merah muda lembut */
+    color: #ffffff; /* Warna teks merah gelap */
+    border: 1px solid #ff0019; /* Border warna merah */
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    transition: top 0.5s ease-in-out; /* Animasi muncul */
+    z-index: 1000;
+    display: none; /* Awalnya tidak terlihat */
+}
+
+.warning-notification-2.show {
+    display: block; /* Tampilkan notifikasi */
+    top: 20px; /* Posisi notifikasi saat muncul */
+}
+
+/* Animasi untuk notifikasi */
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-10px);
+    }
+    10% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+    90% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-10px);
+    }
+}
+
 /* Tombol "Kembali" */
 .prev-btn {
     display: inline-flex;
@@ -857,6 +911,29 @@ html {
 }
 
 .prev-btn:hover {
-    background-color: #5a6268; /* Warna lebih gelap saat hover */
+    background-color: #4b555c; /* Warna lebih gelap saat hover */
 }
 
+/* Styling untuk notifikasi sukses */
+.success-notification {
+    position: fixed;
+    top: -60px; /* Awalnya di luar layar */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #d4edda; /* Hijau lembut */
+    color: #155724; /* Hijau teks */
+    border: 1px solid #c3e6cb;
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    transition: top 0.5s ease-in-out; /* Animasi masuk ke layar */
+    z-index: 1000;
+}
+
+/* Notifikasi saat muncul */
+.success-notification.show {
+    top: 20px; /* Posisi notifikasi muncul */
+}
